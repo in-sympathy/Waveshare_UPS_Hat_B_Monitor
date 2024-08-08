@@ -2,13 +2,13 @@
 A customised fork of a Python code example for monitoring UPS Hat (B) from Waveshare and performing power consumption optimisation and safe shutdown.
 
 I added an ability to not only monitor how much battery you have left, but also:
-1) make sure you have a safe shutdown 
+1) Making sure you have a safe shutdown 
 
-2) cancel a shutdown if you plug your Pi before the scheduled power off time
+2) Cancelling a shutdown if you plug your Pi before the scheduled power off time
 
-3) stop qbittorrent-nox whenever Pi switches to batteries
+3) Stopping qbittorrent-nox whenever Pi switches to batteries
 
-4) start qbittorrent-nox again when Pi is charging and has 90% battery or more
+4) Starting qbittorrent-nox again when Pi is charging and has 90% battery or more
 
 
 To start using it:
