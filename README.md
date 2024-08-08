@@ -6,9 +6,9 @@ I added an ability to not only monitor how much battery you have left, but also:
 
 2) Cancelling a shutdown if you plug your Pi before the scheduled power off time.
 
-3) Stopping qbittorrent-nox whenever Pi switches to batteries.
+3) Stopping qbittorrent-nox whenever Pi switches to batteries if it was running (in case you use it).
 
-4) Starting qbittorrent-nox again when Pi is charging and has 90% battery or more.
+4) Starting qbittorrent-nox again when Pi is charging and has 90% battery or more (again - if you have it on your Pi).
 
 
 
