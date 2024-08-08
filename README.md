@@ -11,8 +11,8 @@ I added an ability to not only monitor how much battery you have left, but also:
 4) start qbittorrent-nox again when Pi is charging and has 90% battery or more
 
 
-A few things to remember:
+To start using it:
 
 1) Check https://alertzy.app for details on setting up their awesome push notifications service prior to running the script
 
-2) Initial run of this script should only happen on a Pi itself with a connected display. VNC can be used, but SSH can not. Be warned!
+2) Clone the repository and initially run "./ups_monitor_launcher.sh" on a Pi itself with a connected display. VNC can be used, but SSH can not. Be warned - otherwise your $DISPLAY and $XAUTHORITY won't be correctly identified by launcher shell script.
