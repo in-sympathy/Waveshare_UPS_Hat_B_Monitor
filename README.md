@@ -1,5 +1,5 @@
 # Waveshare_UPS_Hat_B_Monitor
-A customised fork of a Python code example for monitoring UPS Hat (B) from @waveshare and performing power consumption optimisation and safe shutdown.
+A customised fork of a Python code example for monitoring UPS Hat (B) from @Waveshare and performing power consumption optimisation and safe shutdown.
 
 My version of the code allows to not only monitor how much battery you have left, but also:
 1) Makes sure you have a safe shutdown when the need be.
