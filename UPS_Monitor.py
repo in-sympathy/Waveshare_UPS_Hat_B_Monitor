@@ -283,7 +283,7 @@ if __name__=='__main__':
                 
                 
         #checking if running on battery:
-        if current <= -200:
+        if current <= -250:
             if pid != None: 
                 print (pid)
                 msg = "Running on batteries. Stopping qbittorrent-nox."
@@ -303,7 +303,7 @@ if __name__=='__main__':
                 notification.send(block=False)	     
                 
         #checking battery level to initiate safe shutdown below 25%:
-        if 20 <= p <= 25 and current < -100:
+        if 20 <= p <= 25 and current < -200:
             msg = "Low battery. Shutting down in 60 seconds!"
             #alertzy push notification:
             notify("Raspberry Pi UPS", msg, "Raspberry Pi 5")
