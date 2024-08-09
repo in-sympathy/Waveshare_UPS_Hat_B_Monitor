@@ -339,25 +339,26 @@ if __name__=='__main__':
         
         
         #checking if battery level is 80+% - safe to restore qbittorrent-nox            
-        if current >= -1.00 and p >= 80.00 and pid == None:
-            msg = "Charged above 80% - restarting qbittorrent-nox"
-            #alertzy push notification:
-            notify("Raspberry Pi UPS", msg, "Raspberry Pi 5")						
-            #notify-pi desktop notification
-            notification = Notify()
-            notification.title = "Raspberry Pi UPS"
-            notification.message = msg
-            notification.icon = "img/Qbittorrent_on.png"
-            #notification.urgency = "critical"
-            #notification.timeout = 3
-            #sending notificaiton:
-            notification.send(block=False)
-            # Create a thread to run the start_qbittorrent function
-            thread = threading.Thread(target=start_qbittorrent)
-            # Start the thread
-            thread.start()
-            # Continue with other tasks in the main thread
-            print("qBittorrent-nox is running in a separate thread.")      
+        if p >= 80.00: 
+            if current >= -1.00 and pid == None:
+                msg = "Charged above 80% - restarting qbittorrent-nox"
+                #alertzy push notification:
+                notify("Raspberry Pi UPS", msg, "Raspberry Pi 5")						
+                #notify-pi desktop notification
+                notification = Notify()
+                notification.title = "Raspberry Pi UPS"
+                notification.message = msg
+                notification.icon = "img/Qbittorrent_on.png"
+                #notification.urgency = "critical"
+                #notification.timeout = 3
+                #sending notificaiton:
+                notification.send(block=False)
+                # Create a thread to run the start_qbittorrent function
+                thread = threading.Thread(target=start_qbittorrent)
+                # Start the thread
+                thread.start()
+                # Continue with other tasks in the main thread
+                print("qBittorrent-nox is running in a separate thread.")      
                     
 
 
