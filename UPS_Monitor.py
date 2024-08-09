@@ -373,5 +373,5 @@ if __name__=='__main__':
         print("Percent:       {:3.1f}%".format(p))
         print("")
 
-        time.sleep(5)
+        time.sleep(2)
 	        
