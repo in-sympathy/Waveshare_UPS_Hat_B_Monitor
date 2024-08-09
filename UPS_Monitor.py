@@ -283,25 +283,26 @@ if __name__=='__main__':
                 
                 
         #checking if running on battery:
-        if current < -1 and pid != None:
-            msg = "Running on batteries. Stopping qbittorrent-nox."
-            kill_qbittorrent()
-            pid = 0
-            #alertzy push notification:
-            notify("Raspberry Pi UPS", msg, "Raspberry Pi 5")
-            
-            #notify-pi desktop notification
-            notification = Notify()
-            notification.title = "Raspberry Pi UPS"
-            notification.message = msg
-            notification.icon = "img/Qbittorrent_off.png"
-            #notification.urgency = "critical"
-            #notification.timeout = 3
-            #sending notificaiton:
-            notification.send(block=False)	     
+        if current <= -1.00:
+            if pid != None: 
+                msg = "Running on batteries. Stopping qbittorrent-nox."
+                kill_qbittorrent()
+                
+                #alertzy push notification:
+                notify("Raspberry Pi UPS", msg, "Raspberry Pi 5")
+                
+                #notify-pi desktop notification
+                notification = Notify()
+                notification.title = "Raspberry Pi UPS"
+                notification.message = msg
+                notification.icon = "img/Qbittorrent_off.png"
+                #notification.urgency = "critical"
+                #notification.timeout = 3
+                #sending notificaiton:
+                notification.send(block=False)	     
                 
         #checking battery level to initiate safe shutdown below 25%:
-        if p <= 25 and p >= 20 and current < -1:
+        if p <= 25.00 and p >= 20.00 and current < -1.00:
             msg = "Low battery. Shutting down in 60 seconds!"
             #alertzy push notification:
             notify("Raspberry Pi UPS", msg, "Raspberry Pi 5")
@@ -321,7 +322,7 @@ if __name__=='__main__':
             
             
         #checking if charging has been restored:	
-        if current > -1 and p >= 35 and p <= 55:
+        if current >= -1.00 and p >= 35.00 and p <= 55.00:
             msg = "Charging restored. Cancelling shutdown."
             os.system("sudo shutdown -c")
             #alertzy push notification:
@@ -338,7 +339,7 @@ if __name__=='__main__':
         
         
         #checking if battery level is 80+% - safe to restore qbittorrent-nox            
-        if current >-1 and p >= 80 and pid == None:
+        if current >= -1.00 and p >= 80.00 and pid == None:
             msg = "Charged above 80% - restarting qbittorrent-nox"
             #alertzy push notification:
             notify("Raspberry Pi UPS", msg, "Raspberry Pi 5")						
