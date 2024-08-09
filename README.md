@@ -8,7 +8,7 @@ My version of the code allows to not only monitor how much battery you have left
 
 3) Stops qbittorrent-nox whenever Pi switches to batteries if it was running to save power (in case you use it).
 
-4) Starts qbittorrent-nox again when Pi is charging and has 90% battery or more (again - if you have it on your Pi).
+4) Starts qbittorrent-nox again when Pi is charging and has 80% battery or more (again - if you have it on your Pi).
 
 
 

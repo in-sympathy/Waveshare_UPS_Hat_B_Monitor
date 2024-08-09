@@ -293,9 +293,9 @@ if __name__=='__main__':
             notification.send(block=False)	     
             
             
-        #checking if battery level is 90+% - safe to restore qbittorrent-nox            
-        if current > 0 and p >= 90 and pid == None:
-            msg = "Charged above 90% - restarting qbittorrent-nox"
+        #checking if battery level is 80+% - safe to restore qbittorrent-nox            
+        if current > 0 and p >= 80 and pid == None:
+            msg = "Charged above 80% - restarting qbittorrent-nox"
             #alertzy push notification:
             notify("Raspberry Pi UPS", msg, "Raspberry Pi 5")						
             #notify-pi desktop notification
