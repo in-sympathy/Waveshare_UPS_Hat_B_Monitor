@@ -283,8 +283,9 @@ if __name__=='__main__':
                 
                 
         #checking if running on battery:
-        if current <= -1.00:
+        if current <= -200:
             if pid != None: 
+                print (pid)
                 msg = "Running on batteries. Stopping qbittorrent-nox."
                 kill_qbittorrent()
                 
@@ -302,7 +303,7 @@ if __name__=='__main__':
                 notification.send(block=False)	     
                 
         #checking battery level to initiate safe shutdown below 25%:
-        if p <= 25.00 and p >= 20.00 and current < -1.00:
+        if 20 <= p <= 25 and current < -100:
             msg = "Low battery. Shutting down in 60 seconds!"
             #alertzy push notification:
             notify("Raspberry Pi UPS", msg, "Raspberry Pi 5")
@@ -322,7 +323,7 @@ if __name__=='__main__':
             
             
         #checking if charging has been restored:	
-        if current >= -1.00 and p >= 35.00 and p <= 55.00:
+        if current >= -200 and 35 <= p <= 55:
             msg = "Charging restored. Cancelling shutdown."
             os.system("sudo shutdown -c")
             #alertzy push notification:
@@ -339,8 +340,9 @@ if __name__=='__main__':
         
         
         #checking if battery level is 80+% - safe to restore qbittorrent-nox            
-        if p >= 80.00: 
-            if current >= -1.00 and pid == None:
+        if p >= 80: 
+            if current >= -200 and pid == None:
+                print (pid)
                 msg = "Charged above 80% - restarting qbittorrent-nox"
                 #alertzy push notification:
                 notify("Raspberry Pi UPS", msg, "Raspberry Pi 5")						
@@ -366,10 +368,10 @@ if __name__=='__main__':
         #print("PSU Voltage:   {:6.3f} V".format(bus_voltage + shunt_voltage))
         #print("Shunt Voltage: {:9.6f} V".format(shunt_voltage))
         print("Load Voltage:  {:6.3f} V".format(bus_voltage))
-        print("Current:       {:9.6f} A".format(current/1000))
+        print("Current:       {:9.6f} mA".format(current))
         print("Power:         {:6.3f} W".format(power))
         print("Percent:       {:3.1f}%".format(p))
         print("")
 
-        time.sleep(2)
+        time.sleep(5)
 	        
