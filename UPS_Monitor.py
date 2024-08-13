@@ -283,7 +283,7 @@ if __name__=='__main__':
                 
                 
         #checking if running on battery:
-        if current <= -500:
+        if current <= -600:
             if pid != None: 
                 print (pid)
                 msg = "Running on batteries. Stopping qbittorrent-nox."
